@@ -1,0 +1,9 @@
+frontend
+npx create-react-app frontend
+
+backend
+npm init
+npm i --save-dev babel-cli babel-preset-env babel-preset-stage-0 && npm i body-parser express mongoose nodemon 
+&& used executing 2 npm commands one after the other
+
+babel stage-0 is safest and includes all stages till 4 which are a part of current react library
