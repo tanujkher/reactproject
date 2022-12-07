@@ -7,3 +7,6 @@ npm i --save-dev babel-cli babel-preset-env babel-preset-stage-0 && npm i body-p
 && used executing 2 npm commands one after the other
 
 babel stage-0 is safest and includes all stages till 4 which are a part of current react library
+
+git rm -r --cached node_modules 
+to remove node_modules and add it in .gitignore
