@@ -12,3 +12,7 @@ git rm -r --cached node_modules
 to remove node_modules and add it in .gitignore
 
 mongoose is the object data model for mongodb just like sequelize for MySQL --Esterling Accime for Mongo Tutorial on youtube -- special characters in MongoAtlas password need to be encoded hence better to use the auto-generated password
+
+When we have 2 applications running on the same localhost when we try to do transactions in between the 2 then its called CORS cross origin resource sharing issue
+
+npm i cors

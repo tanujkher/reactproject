@@ -1,0 +1,11 @@
+Insertion with First Name, Last Name and Email in MongoDB
+
+curl -X POST http://localhost:8080/players -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' -H 'postman-token: abf3e04b-6511-8b11-b547-a5c7a92aaf40' -d 'firstName=Tanuj&lastName=Kher&email=tanujkher15%40gmail.com'
+
+Getting list of players
+
+curl -X GET http://localhost:8080/players -H 'cache-control: no-cache' -H 'postman-token: 14b9bc2a-8c43-edf3-19ea-b90d4790e808'
+
+Getting list of players by ID
+
+curl -X GET http://localhost:8080/players/6392314f68b33e2cddaf0ae1 -H 'cache-control: no-cache' -H 'postman-token: 59fee9a1-bf30-6e09-c59f-37822f5c0efc'
