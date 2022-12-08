@@ -9,3 +9,11 @@ curl -X GET http://localhost:8080/players -H 'cache-control: no-cache' -H 'postm
 Getting list of players by ID
 
 curl -X GET http://localhost:8080/players/6392314f68b33e2cddaf0ae1 -H 'cache-control: no-cache' -H 'postman-token: 59fee9a1-bf30-6e09-c59f-37822f5c0efc'
+
+Delete player by ID
+
+curl -X DELETE http://localhost:8080/players/63922e0040e56e0a3212301d -H 'cache-control: no-cache' -H 'postman-token: ad49e9dd-58dd-1c4c-b061-91ca3fb5dd3e'
+
+Edit player by ID
+
+curl -X PUT http://localhost:8080/players/6392314f68b33e2cddaf0ae1 -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' -H 'postman-token: 3ed9ee97-6baf-3efd-cadd-c71c28d11318' -d 'firstName=Tanuj&lastName=Kher&email=tanuj.kher%40tcs.com'

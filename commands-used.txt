@@ -16,3 +16,8 @@ mongoose is the object data model for mongodb just like sequelize for MySQL --Es
 When we have 2 applications running on the same localhost when we try to do transactions in between the 2 then its called CORS cross origin resource sharing issue
 
 npm i cors
+
+git add * 
+git commit -m ""
+git pull
+git push -u origin master
