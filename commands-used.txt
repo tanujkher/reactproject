@@ -1,6 +1,10 @@
 frontend
 npx create-react-app frontend
 
+Materialize CDN is added in index.html in public folder
+
+Add simple react snippets extension. imr to import react, sfc to create stateless function
+
 backend
 npm init
 npm i --save-dev babel-cli babel-preset-env babel-preset-stage-0 && npm i body-parser express mongoose nodemon 
@@ -17,6 +21,7 @@ When we have 2 applications running on the same localhost when we try to do tran
 
 npm i cors
 
+GIT Commands Used
 git add * 
 git commit -m ""
 git pull
