@@ -3,6 +3,8 @@ npx create-react-app frontend
 
 Materialize CDN is added in index.html in public folder
 
+npm i axios
+
 Add simple react snippets extension. imr to import react, sfc to create stateless function
 
 backend
