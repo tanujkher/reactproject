@@ -20,6 +20,7 @@ class App extends React.Component {
     // binding the function for usage in class
     this.updateCurrentPlayer = this.updateCurrentPlayer.bind(this)
     this.showList = this.showList.bind(this)
+    this.deleteUser = this.deleteUser.bind(this)
   }
 
   componentDidMount() {
@@ -34,6 +35,17 @@ class App extends React.Component {
         this.setState({
           players: Response.data
         })
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
+  deleteUser(id){
+    axios.delete(`http://localhost:8080/players/${id}`)
+      .then(Response => {
+        this.showList()
+        console.log(Response)
       })
       .catch(error => {
         console.log(error)
@@ -89,7 +101,7 @@ class App extends React.Component {
         </div>
         <div className='row'>
           <div className='col s3'>{this.state.isShownList && <PlayerList players={this.state.players} updateCurrentPlayer={this.updateCurrentPlayer} />}</div>
-          <div className='col s9'>{this.state.isShownCard && this.state.isShownList && <PlayerSingle player={this.state.currentPlayer} />}</div>
+          <div className='col s9'>{this.state.isShownCard && this.state.isShownList && <PlayerSingle player={this.state.currentPlayer} deleteUser={this.deleteUser} />}</div>
         </div>
         <div className='row'>
           <div className='col s12'>{this.state.isShownAdd && <PlayerForm showList={this.showList} />}</div>
