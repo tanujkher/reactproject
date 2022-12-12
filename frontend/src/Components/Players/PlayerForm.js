@@ -11,6 +11,7 @@ class PlayerForm extends React.Component {
             email: this.refs.email.value
         }).then((response) => {
             console.log(response)
+            this.props.showList()
         }).catch((error) => {
             console.log(error)
         })

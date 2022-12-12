@@ -19,9 +19,14 @@ class App extends React.Component {
 
     // binding the function for usage in class
     this.updateCurrentPlayer = this.updateCurrentPlayer.bind(this)
+    this.showList = this.showList.bind(this)
   }
 
   componentDidMount() {
+    this.refreshPlayersList()
+  }
+
+  refreshPlayersList() {
     const url = 'http://localhost:8080/players'
 
     axios.get(url)
@@ -56,6 +61,7 @@ class App extends React.Component {
       isShownAdd: false,
       isShownCard: false
     })
+    this.refreshPlayersList()
   }
 
   showAdd() {
@@ -74,7 +80,7 @@ class App extends React.Component {
           <nav>
             <div className="nav-wrapper blue darken-1">
               <a href="#" className="brand-logo" onClick={this.hideListAdd.bind(this)}>Team Management</a>
-              <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <ul id="nav-mobile" className="right hide-on-med-and-down">
                 <li><a href="#!" onClick={this.showList.bind(this)}>List Users</a></li>
                 <li><a href="#!" onClick={this.showAdd.bind(this)}>Add Users</a></li>
               </ul>
@@ -86,7 +92,7 @@ class App extends React.Component {
           <div className='col s9'>{this.state.isShownCard && this.state.isShownList && <PlayerSingle player={this.state.currentPlayer} />}</div>
         </div>
         <div className='row'>
-          <div className='col s12'>{this.state.isShownAdd && <PlayerForm />}</div>
+          <div className='col s12'>{this.state.isShownAdd && <PlayerForm showList={this.showList} />}</div>
         </div>
       </div>
     );
