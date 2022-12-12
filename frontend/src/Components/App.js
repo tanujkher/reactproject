@@ -11,7 +11,10 @@ class App extends React.Component {
     super(prop)
     this.state = {
       players: [],
-      currentPlayer: {}
+      currentPlayer: {},
+      isShownList: false,
+      isShownAdd: false,
+      isShownCard: false
     }
 
     // binding the function for usage in class
@@ -34,7 +37,32 @@ class App extends React.Component {
 
   updateCurrentPlayer(item) {
     this.setState({
-      currentPlayer: item
+      currentPlayer: item,
+      isShownCard: true
+    })
+  }
+
+  hideListAdd() {
+    this.setState({
+      isShownList: false,
+      isShownAdd: false,
+      isShownCard: false
+    })
+  }
+
+  showList() {
+    this.setState({
+      isShownList: true,
+      isShownAdd: false,
+      isShownCard: false
+    })
+  }
+
+  showAdd() {
+    this.setState({
+      isShownList: false,
+      isShownAdd: true,
+      isShownCard: false
     })
   }
 
@@ -45,16 +73,20 @@ class App extends React.Component {
           {/* <div className='col s12'>Menu</div> */}
           <nav>
             <div className="nav-wrapper blue darken-1">
-              <a href="#" className="brand-logo">Team Management</a>
+              <a href="#" className="brand-logo" onClick={this.hideListAdd.bind(this)}>Team Management</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#!" onClick={this.showList.bind(this)}>List Users</a></li>
+                <li><a href="#!" onClick={this.showAdd.bind(this)}>Add Users</a></li>
+              </ul>
             </div>
           </nav>
         </div>
         <div className='row'>
-          <div className='col s3'><PlayerList players={this.state.players} updateCurrentPlayer={this.updateCurrentPlayer} /></div>
-          <div className='col s9'><PlayerSingle player={this.state.currentPlayer} /></div>
+          <div className='col s3'>{this.state.isShownList && <PlayerList players={this.state.players} updateCurrentPlayer={this.updateCurrentPlayer} />}</div>
+          <div className='col s9'>{this.state.isShownCard && this.state.isShownList && <PlayerSingle player={this.state.currentPlayer} />}</div>
         </div>
         <div className='row'>
-          <div className='col s12'><PlayerForm /></div>
+          <div className='col s12'>{this.state.isShownAdd && <PlayerForm />}</div>
         </div>
       </div>
     );
