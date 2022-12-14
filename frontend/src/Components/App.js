@@ -14,13 +14,17 @@ class App extends React.Component {
       currentPlayer: {},
       isShownList: false,
       isShownAdd: false,
-      isShownCard: false
+      isShownCard: false,
+      isEditingCard: false,
+      errorInEdit: false
     }
 
     // binding the function for usage in class
     this.updateCurrentPlayer = this.updateCurrentPlayer.bind(this)
     this.showList = this.showList.bind(this)
     this.deleteUser = this.deleteUser.bind(this)
+    this.toggleIsEditingCard = this.toggleIsEditingCard.bind(this)
+    this.toggleErrorInEdit = this.toggleErrorInEdit.bind(this)
   }
 
   componentDidMount() {
@@ -52,10 +56,24 @@ class App extends React.Component {
       })
   }
 
+  toggleIsEditingCard(){
+    this.setState({
+      isEditingCard: true
+    })
+  }
+
+  toggleErrorInEdit(){
+    this.setState({
+      errorInEdit: true
+    })
+  }
+
   updateCurrentPlayer(item) {
     this.setState({
       currentPlayer: item,
-      isShownCard: true
+      isShownCard: true,
+      isEditingCard: false,
+      errorInEdit: false
     })
   }
 
@@ -101,7 +119,7 @@ class App extends React.Component {
         </div>
         <div className='row'>
           <div className='col s3'>{this.state.isShownList && <PlayerList players={this.state.players} updateCurrentPlayer={this.updateCurrentPlayer} />}</div>
-          <div className='col s9'>{this.state.isShownCard && this.state.isShownList && <PlayerSingle player={this.state.currentPlayer} deleteUser={this.deleteUser} />}</div>
+          <div className='col s9'>{this.state.isShownCard && this.state.isShownList && <PlayerSingle isEditing={this.state.isEditingCard} showError={this.state.errorInEdit} player={this.state.currentPlayer} deleteUser={this.deleteUser} toggleIsEditingCard={this.toggleIsEditingCard} toggleErrorInEdit={this.toggleErrorInEdit} showList={this.showList} />}</div>
         </div>
         <div className='row'>
           <div className='col s12'>{this.state.isShownAdd && <PlayerForm showList={this.showList} />}</div>

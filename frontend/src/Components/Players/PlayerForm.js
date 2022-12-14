@@ -49,7 +49,7 @@ class PlayerForm extends React.Component {
                             <label>Email *</label>
                         </div>
                         <div className="input-field col s4">
-                            <input id="phone" ref="phone" type="text" className='validate' />
+                            <input id="phone" ref="phone" type="number" className='validate' />
                             <label>Phone</label>
                         </div>
                         <div className="input-field col s2"></div>
